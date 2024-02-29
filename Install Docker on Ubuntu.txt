@@ -37,17 +37,10 @@ sudo docker run hello-world
 
 docker ps
 
++++++++++++++++++++++++++++++++++++++
++ Manage Docker as a non-root user  +
++++++++++++++++++++++++++++++++++++++
 
-#Uninstall Docker Engine:
-
-sudo apt-get purge docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
-
-#Images, containers, volumes, or custom configuration files on your host aren't automatically removed. To delete all images, containers, and volumes:
-
-sudo rm -rf /var/lib/docker
-sudo rm -rf /var/lib/containerd
-
-#Manage Docker as a non-root user
 #To create the docker group and add your user:
 #Create the docker group.
 
@@ -62,7 +55,24 @@ sudo usermod -aG docker $USER
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service
 
+
 #To stop this behavior, use disable instead.
 
 sudo systemctl disable docker.service
 sudo systemctl disable containerd.service
+
+++++++++++++++++++++++++++++
++ Uninstall Docker Engine: +
+++++++++++++++++++++++++++++
+
+sudo apt-get purge docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
+
+#Images, containers, volumes, or custom configuration files on your host aren't automatically removed. To delete all images, containers, and volumes:
+
+sudo rm -rf /var/lib/docker
+sudo rm -rf /var/lib/containerd
+
++++++++++++++++++++++++++++++
+
+
+
